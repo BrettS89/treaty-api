@@ -1,16 +1,16 @@
 {
   "compilerOptions": {
-    "target": "es2018",
+    "target": "ES6",
     "module": "commonjs",
     "outDir": "./lib",
     "rootDir": "./src",
     "strict": true,
     "esModuleInterop": true,
-    "baseUrl": "./",                       /* Base directory to resolve non-absolute module names. */
+    "baseUrl": "./",
     "paths": {
       "@/*": ["./src/*"],
       "#/*": ["./*"]
-    },
+    }
   },
   "exclude": [
     "test"
