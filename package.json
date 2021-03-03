@@ -63,6 +63,7 @@
     "mongoose": "^5.11.18",
     "serve-favicon": "^2.5.0",
     "shx": "^0.3.3",
+    "tsc": "^1.20150623.0",
     "winston": "^3.3.3"
   },
   "devDependencies": {
