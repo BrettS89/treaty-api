@@ -4,6 +4,7 @@ import { Application } from '../../../declarations';
 import { Deal } from './deal.class';
 import createModel from '../../../models/deal.model';
 import hooks from './deal.hooks';
+import schemas from './schemas';
 
 // Add this service to the service type index
 declare module '../../../declarations' {
@@ -23,6 +24,8 @@ export default function (app: Application): void {
 
   // Get our initialized service so that we can register hooks
   const service = app.service('insurance/deal');
+
+  app.schema(schemas);
 
   service.hooks(hooks);
 }

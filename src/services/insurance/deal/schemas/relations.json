@@ -1,0 +1,13 @@
+{
+  "$id": "/system/schema/service.insurance.deal.relations",
+  "title": "Service.Insurance.Deal.Relations",
+  "type": "object",
+  "properties": {
+    "account": {
+      "$ref": "/system/schema/service.security.account.resource"
+    },
+    "user": {
+      "$ref": "/system/schema/service.security.user.resource"
+    }
+  }
+}

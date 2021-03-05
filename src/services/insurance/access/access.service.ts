@@ -4,6 +4,7 @@ import { Application } from '../../../declarations';
 import { Access } from './access.class';
 import createModel from '../../../models/access.model';
 import hooks from './access.hooks';
+import schemas from './schemas';
 
 // Add this service to the service type index
 declare module '../../../declarations' {
@@ -23,6 +24,8 @@ export default function (app: Application): void {
 
   // Get our initialized service so that we can register hooks
   const service = app.service('insurance/access');
+
+  app.schema(schemas);
 
   service.hooks(hooks);
 }

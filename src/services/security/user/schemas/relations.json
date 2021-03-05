@@ -1,0 +1,13 @@
+{
+  "$id": "/system/schema/service.security.user.relations",
+  "title": "Service.Security.User.Relations",
+  "type": "object",
+  "properties": {
+    "account": {
+      "$ref": "/system/schema/service.security.account.resource"
+    },
+    "role": {
+      "$ref": "/system/schema/service.security.role.resource"
+    }
+  }
+}

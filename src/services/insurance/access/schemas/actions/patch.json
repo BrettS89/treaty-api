@@ -1,0 +1,10 @@
+{
+  "$id": "/system/schema/service.insurance.access.action.patch",
+  "title": "Service.Insurance.Access.Action.Patch",
+  "allOf": [
+    { "$ref": "/system/schema/service.insurance.access.attributes" },
+    {
+      "additionalProperties": false
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import { fastJoin } from 'feathers-hooks-common';
+import { disallow, fastJoin } from 'feathers-hooks-common';
 import resolvers from './resolvers';
 import { authentication, authorization } from '@/hooks';
 
@@ -12,10 +12,20 @@ export default {
       })
     ],
     get: [],
-    create: [],
-    update: [],
-    patch: [],
-    remove: []
+    create: [
+      authorization({
+        broker: { user_id: true },
+        purchaser: { $deny: true },
+      })
+    ],
+    update: [disallow()],
+    patch: [disallow()],
+    remove: [
+      authorization({
+        purchaser: { $deny: true },
+        broker: { user_id: true },
+      })
+    ]
   },
 
   after: {

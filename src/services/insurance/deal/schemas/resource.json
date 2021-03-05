@@ -1,0 +1,9 @@
+{
+  "$id": "/system/schema/service.insurance.deal.resource",
+  "title": "Service.Insurance.Deal.Resource",
+  "allOf": [
+    { "$ref": "/system/schema/database.document.resource" },
+    { "$ref": "/system/schema/service.insurance.deal.attributes" },
+    { "$ref": "/system/schema/service.insurance.deal.relations" }
+  ]
+}

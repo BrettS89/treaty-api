@@ -1,0 +1,13 @@
+{
+  "$id": "/system/schema/service.security.role.action.create",
+  "title": "Service.Security.Role.Action.Create",
+  "allOf": [
+    { "$ref": "/system/schema/service.security.role.attributes" },
+    {
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}
