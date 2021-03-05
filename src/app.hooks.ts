@@ -1,10 +1,10 @@
 // Application hooks that run for every service
 // Don't remove this comment. It's needed to format import lines nicely.
-import { resolve } from '@/hooks';
+import { resolve, setInternal } from '@/hooks';
 
 export default {
   before: {
-    all: [resolve],
+    all: [resolve, setInternal],
     find: [],
     get: [],
     create: [],

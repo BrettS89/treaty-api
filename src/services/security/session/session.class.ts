@@ -23,6 +23,7 @@ export class Session {
     const user: Record<string, any> = (await this.app
       .service('security/user')
       .find({
+        internal: true,
         query: {
           email,
           $resolve: {

@@ -8,6 +8,7 @@
     "esModuleInterop": true,
     "baseUrl": "./",
     "noImplicitAny": false,
+    "resolveJsonModule": true,
     "paths": {
       "@/*": ["./src/*"],
       "#/*": ["./*"]

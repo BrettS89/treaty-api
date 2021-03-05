@@ -12,25 +12,27 @@ const defaultParams = {
   purchaser: { $deny: false },
 };
 
-type AuthorizationHook = (authObj: AuthHookParams) => (context: HookContext) => HookContext;
+type AuthorizationHook =
+  (authObj: AuthHookParams) => (context: HookContext) => Promise<HookContext>;
 
 export const authorization: AuthorizationHook = (authObj: AuthHookParams = defaultParams)=> {
-  return (context: HookContext): HookContext => {
-    let { params: { query, user } } = context;
+  return async (context: HookContext): Promise<HookContext> => {
+    let { params: { internal, query, user } } = context;
+    if (internal) return context;
+
     let role: string = user?.role?.name;
-
     if (role === 'superadmin') return context;
-
-    if (role.includes('-admin')) {
-      role = role.split('_')[0];
-    }
-
+    if (!user) throw new Forbidden();
+    if (role.includes('-admin')) role = role.split('-')[0];
     if (!user) throw new BadRequest();
 
     //@ts-ignore
     if (!authObj[role] || authObj[role].$deny) {
       throw new Forbidden();
     }
+
+    await checkResourceForPatchOrRemove(context, authObj[role]);
+    checkBody(context, authObj[role]);
 
     //@ts-ignore
     query = populateQuery(authObj[role], query, user)
@@ -39,9 +41,6 @@ export const authorization: AuthorizationHook = (authObj: AuthHookParams = defau
   };
 };
 
-/* 
-  populateQuery populates either _id or account_id if included in authObj for broker or purchaser
-*/
 const populateQuery = (
   fields: Record<string, boolean>,
   query: Record<string, any> | undefined,
@@ -51,15 +50,65 @@ const populateQuery = (
   delete fieldsClone.$deny;
 
   //@ts-ignore
-  const newQuery = Object.entries(fields).reduce((acc, [key, value]) => {
-    if (value) {
-      return {
-        ...acc,
-        [key]: key === 'user_id' ? user._id : user[key]
+  const newQuery = Object
+    .entries(fields)
+    .reduce((acc, [key, value]) => {
+      if (value) {
+        return {
+          ...acc,
+          [key]: key === 'user_id' 
+            ? user._id
+            : user[key]
+        }
       }
-    }
-    return acc;
-  }, cloneDeep(query || {}));
+
+      return acc;
+    }, cloneDeep(query || {}));
 
   return newQuery;
+};
+
+const checkResourceForPatchOrRemove = async (
+  context: HookContext,
+  fields: Record<string, boolean>
+): Promise<void> => {
+  const { app, path, id, params: { user } } = context;
+
+  if (context.method !== 'patch' ?? context.method !== 'remove') return;
+  if (!user) throw new Forbidden();
+
+  const resource = await app
+    .service(path)
+    .get(id, { internal: true });
+
+  checkIsValid(resource, user, fields);
+};
+
+const checkBody = (
+  context: HookContext,
+  fields: Record<string, boolean>
+): void => {
+  const { params: { user }, data } = context;
+
+  if (context.method !== 'create') return;
+  if (!user) throw new Forbidden();
+
+  checkIsValid(data, user, fields);
+};
+
+const checkIsValid = (
+  data: Record<string, any>,
+  user: Record<string, any>,
+  fields: Record<string, boolean>
+): void => {
+  const status = Object.entries(fields).map(([key, value]) => {
+    if (!value) return true;
+
+    if (key === 'user_id') return data[key] === user._id.toString(); 
+    return data[key].toString() === user[key].toString();
+  });
+
+  if (status.includes(false)) {
+    throw new Forbidden();
+  }
 };

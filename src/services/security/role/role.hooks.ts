@@ -1,11 +1,19 @@
+import { disallow } from 'feathers-hooks-common';
+import { authentication, authorization } from '@/hooks';
 
 export default {
   before: {
-    all: [],
+    all: [
+      authentication,
+      authorization({
+        broker: { $deny: true },
+        purchaser: { $deny: true },
+      })
+    ],
     find: [],
     get: [],
     create: [],
-    update: [],
+    update: [disallow()],
     patch: [],
     remove: []
   },

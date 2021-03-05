@@ -1,0 +1,10 @@
+{
+  "$id": "/system/schema/service.security.role.action.patch",
+  "title": "Service.Security.Role.Action.Patch",
+  "allOf": [
+    { "$ref": "/system/schema/service.security.role.attributes" },
+    {
+      "additionalProperties": false
+    }
+  ]
+}

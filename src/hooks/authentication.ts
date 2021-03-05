@@ -6,6 +6,8 @@ export const authentication = async (context: HookContext): Promise<HookContext>
   const { app, params } = context;
   const token = params?.headers?.authorization;
 
+  if (params.internal) return context;
+
   if (!token) {
     throw new NotAuthenticated('Missing token');
   }

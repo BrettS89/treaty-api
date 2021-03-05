@@ -4,6 +4,7 @@ import { Application } from '../../../declarations';
 import { Account } from './account.class';
 import createModel from '../../../models/account.model';
 import hooks from './account.hooks';
+import schemas from './schemas';
 
 // Add this service to the service type index
 declare module '../../../declarations' {
@@ -23,6 +24,8 @@ export default function (app: Application): void {
 
   // Get our initialized service so that we can register hooks
   const service = app.service('security/account');
+
+  app.schema(schemas);
 
   service.hooks(hooks);
 }

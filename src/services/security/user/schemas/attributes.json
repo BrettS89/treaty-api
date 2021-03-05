@@ -1,0 +1,19 @@
+{
+  "$id": "/system/schema/service.security.user.attributes",
+  "title": "Service.Security.User.Attributes",
+  "type": "object",
+  "properties": {
+    "account_id": {
+      "$ref": "/system/schema/database.document.id"
+    },
+    "role_id": {
+      "$ref": "/system/schema/database.document.id"
+    },
+    "email": {
+      "type": "string"
+    },
+    "password": {
+      "type": "string"
+    }
+  }
+}
