@@ -1,0 +1,10 @@
+{
+  "$id": "/system/schema/service.data.tag.relations",
+  "title": "Service.Data.Tag.Relations",
+  "type": "object",
+  "properties": {
+    "account": {
+      "$ref": "/system/schema/service.security.account.resource"
+    }
+  }
+}

@@ -8,6 +8,6 @@ const schemas: Record<string, any >[] = [
   attributes,
   relations,
   resource,
-]
+];
 
 export default schemas;

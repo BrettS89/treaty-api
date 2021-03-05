@@ -1,6 +1,6 @@
 import { disallow, fastJoin } from 'feathers-hooks-common';
 import resolvers from './resolvers';
-import { authentication, authorization } from '@/hooks';
+import { authentication, authorization, validate } from '@/hooks';
 
 export default {
   before: {
@@ -13,6 +13,7 @@ export default {
     ],
     get: [],
     create: [
+      validate('service.insurance.access.action.create'),
       authorization({
         broker: { user_id: true },
         purchaser: { $deny: true },

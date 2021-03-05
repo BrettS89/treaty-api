@@ -1,5 +1,5 @@
 import { fastJoin, disallow } from 'feathers-hooks-common';
-import { authentication, authorization } from '@/hooks';
+import { authentication, authorization, validate } from '@/hooks';
 import { hashPassword } from './hooks';
 import resolvers from '@/services/security/user/resolvers';
 
@@ -14,10 +14,14 @@ export default {
       })
     ],
     get: [authentication],
-    create: [hashPassword],
+    create: [
+      validate('service.security.user.action.create'),
+      hashPassword
+    ],
     update: [disallow()],
     patch: [
       authentication,
+      validate('service.security.user.action.patch'),
       authorization({
         broker: { user_id: true },
         purchaser: { user_id: true },

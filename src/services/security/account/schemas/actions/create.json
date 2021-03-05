@@ -7,7 +7,7 @@
       "required": [
         "name"
       ],
-      "additionalFields": false
+      "additionalProperties": false
     }
   ]
 }

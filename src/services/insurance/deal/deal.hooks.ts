@@ -1,5 +1,5 @@
 import { disallow } from 'feathers-hooks-common';
-import { authentication, authorization } from '@/hooks';
+import { authentication, authorization, validate } from '@/hooks';
 
 export default {
   before: {
@@ -12,6 +12,7 @@ export default {
     ],
     get: [],
     create: [
+      validate('service.insurance.deal.action.create'),
       authorization({
         broker: { account_id: true, user_id: true },
         purchaser: { $deny: true },
@@ -19,6 +20,7 @@ export default {
     ],
     update: [disallow()],
     patch: [
+      validate('service.insurance.deal.action.patch'),
       authorization({
         purchaser: { $deny: true },
         broker: { user_id: true, account_id: true }

@@ -1,5 +1,5 @@
 import { disallow } from 'feathers-hooks-common';
-import { authentication, authorization } from '@/hooks';
+import { authentication, authorization, validate } from '@/hooks';
 
 export default {
   before: {
@@ -12,9 +12,9 @@ export default {
     ],
     find: [],
     get: [],
-    create: [],
+    create: [validate('service.security.role.action.create')],
     update: [disallow()],
-    patch: [],
+    patch: [validate('service.security.role.action.patch')],
     remove: []
   },
 

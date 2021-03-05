@@ -4,8 +4,7 @@
   "allOf": [
     { "$ref": "/system/schema/service.security.account.attributes" },
     {
-      "additionalFields": false
+      "additionalProperties": false
     }
   ]
-  
 }

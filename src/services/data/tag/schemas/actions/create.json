@@ -1,0 +1,14 @@
+{
+  "$id": "/system/schema/service.data.tag.action.create",
+  "title": "Service.Data.Tag.Action.Create",
+  "allOf": [
+    { "$ref": "/system/schema/service.data.tag.attributes" },
+    {
+      "required": [
+        "key",
+        "value"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}
