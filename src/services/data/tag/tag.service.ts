@@ -7,7 +7,7 @@ import hooks from './tag.hooks';
 import schemas from './schemas';
 
 // Add this service to the service type index
-declare module '../../../declarations' {
+declare module '@/declarations' {
   interface ServiceTypes {
     'data/tag': Tag & ServiceAddons<any>;
   }

@@ -27,6 +27,7 @@ export class Session {
         query: {
           email,
           $resolve: {
+            account: true,
             role: true,
           },
         },

@@ -7,6 +7,11 @@ const resolvers = {
         await app.service('security/role').get(user.role_id, { internal: true })
       );
     },
+    account: (...args: any) => async (user: Record<string, any>, { app }: HookContext) => {
+      user.account = (
+        await app.service('security/account').get(user.account_id, { internal: true })
+      );
+    }, 
   }
 };
 

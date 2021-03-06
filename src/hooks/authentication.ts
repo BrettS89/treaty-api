@@ -31,8 +31,10 @@ export const authentication = async (context: HookContext): Promise<HookContext>
   const user = await app
     .service('security/user')
     .get(decodedUser._id, {
+      internal: true,
       query: {
         $resolve: {
+          account: true,
           role: true,
         },
       },
