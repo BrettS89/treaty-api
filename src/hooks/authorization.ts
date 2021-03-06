@@ -22,13 +22,13 @@ export const authorization: AuthorizationHook = (authObj: AuthHookParams = defau
 
     let role: string = user?.role?.name;
     if (role === 'superadmin') return context;
-    if (!user) throw new Forbidden();
+    if (!user) throw new Forbidden('Unauthorized');
     if (role.includes('-admin')) role = role.split('-')[0];
-    if (!user) throw new BadRequest();
+    if (!user) throw new BadRequest('Unauthorized');
 
     //@ts-ignore
     if (!authObj[role] || authObj[role].$deny) {
-      throw new Forbidden();
+      throw new Forbidden('Unauthorized');
     }
 
     await checkResourceForPatchOrRemove(context, authObj[role]);
@@ -109,6 +109,6 @@ const checkIsValid = (
   });
 
   if (status.includes(false)) {
-    throw new Forbidden();
+    throw new Forbidden('Unauthorized');
   }
 };
