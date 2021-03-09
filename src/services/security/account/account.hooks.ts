@@ -9,7 +9,7 @@ export default {
     create: [
       authorization({
         broker: { $deny: true },
-        purchaser: { $deny: true },
+        reinsurer: { $deny: true },
       }),
       validate('service.security.account.action.create')
     ],
@@ -17,14 +17,14 @@ export default {
     patch: [
       authorization({
         broker: { account_id: true },
-        purchaser: { account_id: true },
+        reinsurer: { account_id: true },
       }),
       validate('service.security.account.action.patch')
     ],
     remove: [
       authorization({
         broker: { $deny: true },
-        purchaser: { $deny: true },
+        reinsurer: { $deny: true },
       })
     ]
   },

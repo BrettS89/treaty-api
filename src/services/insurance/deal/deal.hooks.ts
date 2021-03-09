@@ -6,7 +6,7 @@ export default {
     all: [authentication],
     find: [
       authorization({
-        purchaser: { $deny: true },
+        reinsurer: { $deny: true },
         broker: { user_id: true },
       })
     ],
@@ -15,20 +15,20 @@ export default {
       validate('service.insurance.deal.action.create'),
       authorization({
         broker: { account_id: true, user_id: true },
-        purchaser: { $deny: true },
+        reinsurer: { $deny: true },
       })
     ],
     update: [disallow()],
     patch: [
       validate('service.insurance.deal.action.patch'),
       authorization({
-        purchaser: { $deny: true },
+        reinsurer: { $deny: true },
         broker: { user_id: true, account_id: true }
       })
     ],
     remove: [
       authorization({
-        purchaser: { $deny: true },
+        reinsurer: { $deny: true },
         broker: { user_id: true, account_id: true }
       })
     ]

@@ -4,12 +4,12 @@ import { cloneDeep } from 'lodash';
 
 interface AuthHookParams {
   broker?: Record<string, boolean>;
-  purchaser?: Record<string, boolean>;
+  reinsurer?: Record<string, boolean>;
 }
 
 const defaultParams = {
   broker: { $deny: false },
-  purchaser: { $deny: false },
+  reinsurer: { $deny: false },
 };
 
 type AuthorizationHook =

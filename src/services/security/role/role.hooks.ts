@@ -7,7 +7,7 @@ export default {
       authentication,
       authorization({
         broker: { $deny: true },
-        purchaser: { $deny: true },
+        reinsurer: { $deny: true },
       })
     ],
     find: [],

@@ -10,7 +10,7 @@ export default {
       authentication,
       authorization({
         broker: { user_id: true },
-        purchaser: { user_id: true },
+        reinsurer: { user_id: true },
       })
     ],
     get: [authentication],
@@ -24,14 +24,14 @@ export default {
       validate('service.security.user.action.patch'),
       authorization({
         broker: { user_id: true },
-        purchaser: { user_id: true },
+        reinsurer: { user_id: true },
       })
     ],
     remove: [
       authentication,
       authorization({
         broker: { $deny: true },
-        purchaser: { $deny: true },
+        reinsurer: { $deny: true },
       })
     ]
   },

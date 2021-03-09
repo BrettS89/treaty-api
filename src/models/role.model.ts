@@ -16,8 +16,8 @@ export default function (app: Application): Model<any> {
       enum: [
         'broker',
         'broker-admin',
-        'purchaser',
-        'purchaser-admin',
+        'reinsurer',
+        'reinsurer-admin',
         'superadmin',
       ],
     }
