@@ -6,8 +6,7 @@
     {
       "required": [
         "name"
-      ],
-      "additionalProperties": false
+      ]
     }
   ]
 }

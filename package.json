@@ -27,6 +27,7 @@
     "test": "npm run lint && npm run compile && npm run jest",
     "lint": "eslint src/. test/. --config .eslintrc.json --ext .ts --fix",
     "dev": "tsc-watch --onSuccess \"node lib/\"",
+    "seed": "node lib/seed",
     "start": "npm run compile && node lib/",
     "jest": "jest  --forceExit",
     "compile": "shx rm -rf lib/ && tsc"

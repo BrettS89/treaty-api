@@ -20,9 +20,23 @@ export default function (app: Application): Model<any> {
       ref: 'security/user',
       required: true,
     },
-    name: {
+    title: {
       type: String,
-      required: true
+    },
+    executive_summary: {
+      type: String,
+    },
+    location: [{
+      type: String,
+    }],
+    gross_written_premium: {
+      type: Number,
+    },
+    projected_loss_ratio: {
+      type: String,
+    },
+    limit: {
+      type: Number,
     },
   }, {
     timestamps: true

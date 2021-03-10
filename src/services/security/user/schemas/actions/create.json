@@ -9,8 +9,7 @@
         "password",
         "account_id",
         "role_id"
-      ],
-      "additionalProperties": false
+      ]
     }
   ]
 }

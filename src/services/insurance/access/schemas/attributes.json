@@ -15,5 +15,6 @@
     "active": {
       "type": "boolean"
     }
-  }
+  },
+  "additionalProperties": false
 }

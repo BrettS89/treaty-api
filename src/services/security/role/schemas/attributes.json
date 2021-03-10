@@ -6,5 +6,6 @@
     "name": {
       "type": "string"
     }
-  }
+  },
+  "additionalProperties": false
 }

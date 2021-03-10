@@ -9,8 +9,27 @@
     "user_id": {
       "$ref": "/system/schema/database.document.id"
     },
-    "name": {
+    "title": {
       "type": "string"
+    },
+    "executive_summary": {
+      "type": "string"
+    },
+    "location": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "gross_written_premium": {
+      "type": "number"
+    },
+    "projected_loss_ratio": {
+      "type": "string"
+    },
+    "limit": {
+      "type": "number"
     }
-  }
+  },
+  "additionalProperties": false
 }

@@ -9,8 +9,7 @@
         "deal_id",
         "user_id",
         "active"
-      ],
-      "additionalProperties": false
+      ]
     }
   ]
 }

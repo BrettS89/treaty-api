@@ -2,9 +2,6 @@
   "$id": "/system/schema/service.insurance.deal.action.patch",
   "title": "Service.Insurance.Deal.Action.Patch",
   "allOf": [
-    { "$ref": "/system/schema/service.insurance.deal.attributes" },
-    {
-      "additionalProperties": false
-    }
+    { "$ref": "/system/schema/service.insurance.deal.attributes" }
   ]
 }
