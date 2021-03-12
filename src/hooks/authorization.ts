@@ -15,8 +15,9 @@ const defaultParams = {
 type AuthorizationHook =
   (authObj: AuthHookParams) => (context: HookContext) => Promise<HookContext>;
 
-export const authorization: AuthorizationHook = (authObj: AuthHookParams = defaultParams)=> {
+export const authorization: AuthorizationHook = (auth: AuthHookParams = defaultParams)=> {
   return async (context: HookContext): Promise<HookContext> => {
+    const authObj = { ...defaultParams, ...auth };
     let { params: { internal, query, user } } = context;
     if (internal) return context;
 
@@ -24,7 +25,6 @@ export const authorization: AuthorizationHook = (authObj: AuthHookParams = defau
     if (role === 'superadmin') return context;
     if (!user) throw new Forbidden('Unauthorized');
     if (role.includes('-admin')) role = role.split('-')[0];
-    if (!user) throw new BadRequest('Unauthorized');
 
     //@ts-ignore
     if (!authObj[role] || authObj[role].$deny) {
@@ -91,7 +91,7 @@ const checkBody = (
   const { params: { user }, data } = context;
 
   if (context.method !== 'create') return;
-  if (!user) throw new Forbidden();
+  if (!user) throw new Forbidden('Unauthorized');
 
   checkIsValid(data, user, fields);
 };
@@ -104,7 +104,7 @@ const checkIsValid = (
   const status = Object.entries(fields).map(([key, value]) => {
     if (!value) return true;
 
-    if (key === 'user_id') return data[key] === user._id.toString(); 
+    if (key === 'user_id') return data[key].toString() === user._id.toString(); 
     return data[key].toString() === user[key].toString();
   });
 

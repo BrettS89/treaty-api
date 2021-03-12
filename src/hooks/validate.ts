@@ -12,7 +12,6 @@ export const validate = (schema: string) => {
     const doValidation = ajv.compile(foundSchema);
 
     const valid = doValidation(context.data);
-    console.log(doValidation.errors);
 
     if (valid) return context;
 

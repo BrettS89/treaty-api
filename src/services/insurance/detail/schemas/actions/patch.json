@@ -1,0 +1,7 @@
+{
+  "$id": "/system/schema/service.insurance.detail.action.patch",
+  "title": "Service.Insurance.Detail.Action.Patch",
+  "allOf": [
+    { "$ref": "/system/schema/service.insurance.detail.attributes" }
+  ]
+}

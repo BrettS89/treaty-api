@@ -1,5 +1,6 @@
-import { disallow } from 'feathers-hooks-common';
+import { disallow, fastJoin } from 'feathers-hooks-common';
 import { authentication, authorization, validate } from '@/hooks';
+import resolvers from './resolvers';
 
 export default {
   before: {
@@ -35,7 +36,7 @@ export default {
   },
 
   after: {
-    all: [],
+    all: [fastJoin(resolvers, ctx => ctx.params.resolve || {})],
     find: [],
     get: [],
     create: [],

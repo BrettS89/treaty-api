@@ -1,40 +1,27 @@
-// insurance/deal-model.ts - A mongoose model
+// insurance/detail-model.ts - A mongoose model
 //
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
-import { Application } from '@/declarations';
+import { Application } from '../declarations';
 import { Model, Mongoose } from 'mongoose';
 
 export default function (app: Application): Model<any> {
-  const modelName = 'insurance/deal';
+  const modelName = 'insurance/detail';
   const mongooseClient: Mongoose = app.get('mongooseClient');
   const { Schema } = mongooseClient;
   const schema = new Schema({
-    account_id: {
+    deal_id: {
       type: Schema.Types.ObjectId,
-      ref: 'security/account',
+      ref: 'insurance/deal',
+      index: true,
+    },
+    key: {
+      type: String,
       required: true,
     },
-    user_id: {
-      type: Schema.Types.ObjectId,
-      ref: 'security/user',
-      required: true,
-    },
-    title: {
-      type: String,
-    },
-
-    detail_ids: [{
-      type: Schema.Types.ObjectId,
-      ref: 'insurance/detail',
-      default: [],
-    }],
-    executive_summary: {
-      type: String,
-    },
-    location: [{
-      type: String,
-    }],
+    value: {
+      type: Schema.Types.Mixed,
+    }
   }, {
     timestamps: true
   });

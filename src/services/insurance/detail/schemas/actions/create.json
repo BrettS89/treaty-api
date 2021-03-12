@@ -1,0 +1,14 @@
+{
+  "$id": "/system/schema/service.insurance.detail.action.create",
+  "title": "Service.Insurance.Detail.Action.Create",
+  "allOf": [
+    { "$ref": "/system/schema/service.insurance.detail.attributes" },
+    {
+      "required": [
+        "deal_id",
+        "key",
+        "value"
+      ]
+    }
+  ]
+}

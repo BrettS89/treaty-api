@@ -12,6 +12,12 @@
     "title": {
       "type": "string"
     },
+    "detail_ids": {
+      "type": "array", 
+      "items": {
+        "$ref": "/system/schema/database.document.id"
+      }
+    },
     "executive_summary": {
       "type": "string"
     },
@@ -20,15 +26,6 @@
       "items": {
         "type": "string"
       }
-    },
-    "gross_written_premium": {
-      "type": "number"
-    },
-    "projected_loss_ratio": {
-      "type": "string"
-    },
-    "limit": {
-      "type": "number"
     }
   },
   "additionalProperties": false
