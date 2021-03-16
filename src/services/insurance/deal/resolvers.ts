@@ -13,6 +13,14 @@ const resolvers = {
         })) ?? []
       );
     },
+    user: (...args: any) => async (resource: Record<string, any>, { app }: HookContext) => {
+      resource.user = (
+        await app.service('security/user').get(resource.user_id, {
+          internal: true,
+          query: { $resolve: { account: true }
+        }})
+      )
+    },
   }
 };
 

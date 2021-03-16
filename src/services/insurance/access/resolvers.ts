@@ -4,7 +4,10 @@ const resolvers = {
   joins: {
     deal: (...args: any) => async (access: Record<string, any>, { app }: HookContext) => {
       access.deal = (
-        await app.service('insurance/deal').get(access.deal_id, { internal: true })
+        await app.service('insurance/deal').get(access.deal_id, {
+          internal: true,
+          query: { $resolve: { details: true, user: true } }
+        })
       );
     },
   }

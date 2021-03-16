@@ -5,6 +5,8 @@
     { "$ref": "/system/schema/service.security.user.attributes" },
     {
       "required": [
+        "firstname",
+        "lastname",
         "email",
         "password",
         "account_id",

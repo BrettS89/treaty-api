@@ -18,6 +18,14 @@ export default function (app: Application): Model<any> {
       type: Schema.Types.ObjectId,
       ref: 'security/role',
     },
+    firstname: {
+      type: String,
+      required: true,
+    },
+    lastname: {
+      type: String,
+      required: true,
+    },
     email: {
       type: String,
       required: true,

@@ -3,7 +3,7 @@ import { ServiceAddons } from '@feathersjs/feathers';
 import { Application } from '../../../declarations';
 import { Access } from './access.class';
 import createModel from '../../../models/access.model';
-import hooks from './access.hooks';
+import hooks from './hooks';
 import schemas from './schemas';
 
 // Add this service to the service type index

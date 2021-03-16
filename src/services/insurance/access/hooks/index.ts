@@ -1,6 +1,7 @@
 import { disallow, fastJoin } from 'feathers-hooks-common';
-import resolvers from './resolvers';
+import resolvers from '@/services/insurance/access/resolvers';
 import { authentication, authorization, validate } from '@/hooks';
+import { formatDeal } from './hooks';
 
 export default {
   before: {
@@ -9,7 +10,8 @@ export default {
       authorization({
         broker: { user_id: true },
         reinsurer: { account_id: true },
-      })
+      }),
+      
     ],
     get: [],
     create: [
@@ -17,7 +19,7 @@ export default {
       authorization({
         broker: { user_id: true },
         reinsurer: { $deny: true },
-      })
+      }),
     ],
     update: [disallow()],
     patch: [disallow()],
@@ -31,7 +33,7 @@ export default {
 
   after: {
     all: [fastJoin(resolvers, ctx => ctx.params.resolve || {})],
-    find: [],
+    find: [formatDeal],
     get: [],
     create: [],
     update: [],
