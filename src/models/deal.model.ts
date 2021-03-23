@@ -50,6 +50,7 @@ export default function (app: Application): Model<any> {
     },
     title: {
       type: String,
+      default: 'New Treaty'
     },
     insurance_company: {
       type: String,
