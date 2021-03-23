@@ -9,7 +9,43 @@
     "user_id": {
       "$ref": "/system/schema/database.document.id"
     },
+    "treaty_type": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "additionalItems": false
+    },
+    "insurance_type": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "additionalItems": false
+    },
+    "effective_date": {
+      "type": "string"
+    },
+    "contract_term": {
+      "type": "string"
+    },
+    "reinsurance_coverage": {
+      "type": "string"
+    },
+    "excess_treaty": {
+      "type": "boolean"
+    },
+    "admitted": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "additionalItems": false
+    },
     "title": {
+      "type": "string"
+    },
+    "insurance_company": {
       "type": "string"
     },
     "detail_ids": {
@@ -19,6 +55,9 @@
       }
     },
     "executive_summary": {
+      "type": "string"
+    },
+    "additional_details": {
       "type": "string"
     },
     "location": {

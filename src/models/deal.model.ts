@@ -20,16 +20,49 @@ export default function (app: Application): Model<any> {
       ref: 'security/user',
       required: true,
     },
+    treaty_type: {
+      type: [String],
+      required: true,
+    },
+    insurance_type: {
+      type: [String],
+      required: true,
+    },
+    effective_date: {
+      type: String,
+      required: true,
+    },
+    contract_term: {
+      type: String,
+      required: true,
+    },
+    reinsurance_coverage: {
+      type: String,
+      required: true,
+    },
+    excess_treaty: {
+      type: Boolean,
+      required: true,
+    },
+    admitted: {
+      type: [String],
+      required: true,
+    },
     title: {
       type: String,
     },
-
+    insurance_company: {
+      type: String,
+    },
     detail_ids: [{
       type: Schema.Types.ObjectId,
       ref: 'insurance/detail',
       default: [],
     }],
     executive_summary: {
+      type: String,
+    },
+    additional_details: {
       type: String,
     },
     location: [{

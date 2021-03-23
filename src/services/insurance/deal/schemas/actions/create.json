@@ -6,7 +6,14 @@
     {
       "required": [
         "account_id",
-        "user_id"
+        "user_id",
+        "treaty_type",
+        "insurance_type",
+        "effective_date",
+        "contract_term",
+        "reinsurance_coverage",
+        "excess_treaty",
+        "admitted"
       ]
     }
   ]
