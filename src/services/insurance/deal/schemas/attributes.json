@@ -23,6 +23,9 @@
       },
       "additionalItems": false
     },
+    "business_covered": {
+      "type": "string"
+    },
     "effective_date": {
       "type": "string"
     },
@@ -41,6 +44,9 @@
         "type": "string"
       },
       "additionalItems": false
+    },
+    "program_business": {
+      "type": "boolean"
     },
     "title": {
       "type": "string"

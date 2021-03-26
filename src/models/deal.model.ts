@@ -28,6 +28,9 @@ export default function (app: Application): Model<any> {
       type: [String],
       required: true,
     },
+    business_covered: {
+      type: String,
+    },
     effective_date: {
       type: String,
       required: true,
@@ -46,6 +49,10 @@ export default function (app: Application): Model<any> {
     },
     admitted: {
       type: [String],
+      required: true,
+    },
+    program_business: {
+      type: Boolean,
       required: true,
     },
     title: {
