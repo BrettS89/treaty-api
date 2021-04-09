@@ -1,0 +1,17 @@
+{
+  "$id": "/system/schema/service.insurance.following.relations",
+  "title": "Service.Insurance.Following.Relations",
+  "type": "object",
+  "properties": {
+    "user": {
+      "$ref": "/system/schema/service.security.user.resource"
+    },
+    "deal": {
+      "$ref": "/system/schema/service.insurance.deal.resource"
+    },
+    "access": {
+      "$ref": "/system/schema/service.insurance.access.resource"
+    }
+  },
+  "additionalProperties": false
+}

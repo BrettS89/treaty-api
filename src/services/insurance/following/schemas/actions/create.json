@@ -1,0 +1,12 @@
+{
+  "$id": "/system/schema/service.insurance.following.action.create",
+  "title": "Service.Insurance.Following.Action.Create",
+  "allOf": [
+    { "$ref": "/system/schema/service.insurance.following.attributes" },
+    {
+      "required": [
+        "deal_id"
+      ]
+    }
+  ]
+}

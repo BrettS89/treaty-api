@@ -10,6 +10,7 @@ import insuranceDocument from './insurance/document/document.service';
 import insuranceMarket from './insurance/market/market.service';
 import insuranceAccess from './insurance/access/access.service';
 import insuranceDetail from './insurance/detail/detail.service';
+import insuranceFollowing from './insurance/following/following.service';
 // Don't remove this comment. It's needed to format import lines nicely.
 
 export default function (app: Application): void {
@@ -24,4 +25,5 @@ export default function (app: Application): void {
   app.configure(insuranceMarket);
   app.configure(insuranceAccess);
   app.configure(insuranceDetail);
+  app.configure(insuranceFollowing);
 }

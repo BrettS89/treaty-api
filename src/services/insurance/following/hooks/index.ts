@@ -1,32 +1,36 @@
 import { disallow, fastJoin } from 'feathers-hooks-common';
-import resolvers from '@/services/insurance/access/resolvers';
-import { authentication, authorization, validate } from '@/hooks';
-import { formatDeal } from '@/hooks';
+import { authentication, authorization, formatDeal } from '@/hooks';
+import { addFieldsOnCreate } from './hooks';
+import resolvers from '@/services/insurance/following/resolvers';
 
 export default {
   before: {
     all: [authentication],
     find: [
       authorization({
-        broker: { user_id: true },
-        reinsurer: { account_id: true },
+        broker: { $deny: true },
+        reinsurer: { user_id: true },
       }),
     ],
-    get: [],
-    create: [
-      validate('service.insurance.access.action.create'),
+    get: [
       authorization({
-        broker: { user_id: true },
-        reinsurer: { $deny: true },
+        broker: { $access: false },
+        reinsurer: { user_id: true },
       }),
+    ],
+    create: [
+      authorization({
+        broker: { $deny: true },
+      }),
+      addFieldsOnCreate,
     ],
     update: [disallow()],
     patch: [disallow()],
     remove: [
       authorization({
-        reinsurer: { $deny: true },
-        broker: { user_id: true },
-      })
+        broker: { $deny: true },
+        reinsurer: { user_id: true },
+      }),
     ]
   },
 
