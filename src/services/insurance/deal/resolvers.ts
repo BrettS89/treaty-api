@@ -21,6 +21,31 @@ const resolvers = {
         }})
       )
     },
+    messages: (...args: any) => async (resource: Record<string, any>, { app }: HookContext) => {
+      resource.messages = (
+        await app.service('communication/message').find({
+          query: {
+            deal_id: resource._id,
+            $resolve: { user: true },
+          },
+          internal: true,
+          paginate: false,
+        })
+      );
+    },
+    access: (...args: any) => async (resource: Record<string, any>, { app }: HookContext) => {
+      resource.access = (
+        await app.service('insurance/access').find({
+          query: {
+            $limit: 1000,
+            deal_id: resource._id,
+            $resolve: { account: true }
+          },
+          internal: true,
+          paginate: false,
+        })
+      )
+    },
   }
 };
 

@@ -1,0 +1,15 @@
+{
+  "$id": "/system/schema/service.communication.message.action.create",
+  "title": "Service.Communication.Message.Action.Create",
+  "allOf": [
+    { "$ref": "/system/schema/service.communication.message.attributes" },
+    {
+      "required": [
+        "account_id",
+        "deal_id",
+        "user_id",
+        "message"
+      ]
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import { HookContext } from '@feathersjs/feathers';
+import { Hook, HookContext } from '@feathersjs/feathers';
 
 const resolvers = {
   joins: {
@@ -10,6 +10,13 @@ const resolvers = {
         })
       );
     },
+    account: (...args: any) => async (access: Record<string, any>, { app }: HookContext) => {
+      access.account = (
+        await app.service('security/account').get(access.account_id, {
+          internal: true,
+        })
+      );
+    }
   }
 };
 

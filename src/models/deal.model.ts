@@ -73,8 +73,9 @@ export default function (app: Application): Model<any> {
     additional_details: {
       type: String,
     },
-    location: [{
+    territories: [{
       type: String,
+      default: [],
     }],
   }, {
     timestamps: true
