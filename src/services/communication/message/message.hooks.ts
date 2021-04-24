@@ -6,19 +6,15 @@ export default {
   before: {
     all: [authentication],
     find: [],
-    get: [disallow()],
+    get: [],
     create: [
       authorization({
-        broker: { account_id: true, user_id: true },
+        broker: { user_id: true },
         reinsurer: { account_id: true, user_id: true },
     })
   ],
     update: [disallow()],
-    patch: [
-      authorization({
-        broker: { account_id: true, user_id: true },
-        reinsurer: { account_id: true, user_id: true },
-    })],
+    patch: [],
     remove: [
       authorization({
         broker: { account_id: true, user_id: true },

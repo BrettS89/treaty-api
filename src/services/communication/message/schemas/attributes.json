@@ -14,6 +14,13 @@
     },
     "message": {
       "type": "string"
+    },
+    "read": {
+      "type": "array",
+      "items": {
+        "$ref": "/system/schema/database.document.id"
+      },
+      "additionalItems": false
     }
   },
   "additionalProperties": false

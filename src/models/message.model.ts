@@ -11,21 +11,29 @@ export default function (app: Application): Model<any> {
   const { Schema } = mongooseClient;
   const schema = new Schema({
     account_id: {
-      type: String,
+      type: Schema.Types.ObjectId,
+      ref: 'security/account',
       required: true,
     },
     deal_id: {
-      type: String,
+      type: Schema.Types.ObjectId,
+      ref: 'insurance/deal',
       required: true,
     },
     user_id: {
-      type: String,
+      type: Schema.Types.ObjectId,
+      ref: 'security/user',
       required: true,
     },
     message: {
       type: String,
       required: true,
     },
+    read: [{
+      type: Schema.Types.ObjectId,
+      ref: 'security/user',
+      default: [],
+    }]
   }, {
     timestamps: true,
   });
