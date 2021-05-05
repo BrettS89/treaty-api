@@ -1,23 +1,27 @@
-// security/account-model.ts - A mongoose model
+// market/note-model.ts - A mongoose model
 //
 // See http://mongoosejs.com/docs/models.html
 // for more of what you can do here.
-import { Application } from '@/declarations';
+import { Application } from '../declarations';
 import { Model, Mongoose } from 'mongoose';
 
 export default function (app: Application): Model<any> {
-  const modelName = 'security/account';
+  const modelName = 'market/note';
   const mongooseClient: Mongoose = app.get('mongooseClient');
   const { Schema } = mongooseClient;
   const schema = new Schema({
-    name: {
-      type: String,
+    deal_id: {
+      type: Schema.Types.ObjectId,
+      ref: 'insurance/deal',
       required: true,
     },
-    type: {
-      type: String,
-      enum: ['broker', 'reinsurer'],
+    account_id: {
+      type: Schema.Types.ObjectId,
+      ref: 'security/account',
       required: true,
+    },
+    notes: {
+      type: String,
     }
   }, {
     timestamps: true

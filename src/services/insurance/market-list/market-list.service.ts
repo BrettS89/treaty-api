@@ -1,15 +1,14 @@
-// Initializes the `insurance/deal` service on path `/insurance/deal`
+// Initializes the `insurance/market-list` service on path `/insurance/market-list`
 import { ServiceAddons } from '@feathersjs/feathers';
 import { Application } from '../../../declarations';
-import { Deal } from './deal.class';
-import createModel from '../../../models/deal.model';
-import hooks from './hooks';
-import schemas from './schemas';
+import { MarketList } from './market-list.class';
+import createModel from '../../../models/market-list.model';
+import hooks from './market-list.hooks';
 
 // Add this service to the service type index
 declare module '../../../declarations' {
   interface ServiceTypes {
-    'insurance/deal': Deal & ServiceAddons<any>;
+    'insurance/market-list': MarketList & ServiceAddons<any>;
   }
 }
 
@@ -20,12 +19,10 @@ export default function (app: Application): void {
   };
 
   // Initialize our service with any options it requires
-  app.use('/insurance/deal', new Deal(options, app));
+  app.use('/insurance/market-list', new MarketList(options, app));
 
   // Get our initialized service so that we can register hooks
-  const service = app.service('insurance/deal');
-
-  app.schema(schemas);
+  const service = app.service('insurance/market-list');
 
   service.hooks(hooks);
 }

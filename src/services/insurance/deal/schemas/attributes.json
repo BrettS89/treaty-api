@@ -60,6 +60,12 @@
         "$ref": "/system/schema/database.document.id"
       }
     },
+    "market_list_id": {
+      "oneOf": [
+        { "$ref": "/system/schema/database.document.id" },
+        { "type": "null" }
+      ]
+    },
     "executive_summary": {
       "type": "string"
     },

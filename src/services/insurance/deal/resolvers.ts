@@ -46,6 +46,11 @@ const resolvers = {
         })
       )
     },
+    market_list: (...args: any) => async (resource: Record<string, any>, { app }: HookContext) => {
+      resource.market_list = (
+        (await app.service('insurance/access').get(resource.market_list_id)) ?? null
+      )
+    },
   }
 };
 

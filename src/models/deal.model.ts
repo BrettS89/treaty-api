@@ -20,6 +20,10 @@ export default function (app: Application): Model<any> {
       ref: 'security/user',
       required: true,
     },
+    market_list_id: {
+      type: Schema.Types.ObjectId,
+      ref: 'insurance/market-list',
+    },
     treaty_type: {
       type: [String],
       required: true,

@@ -11,26 +11,29 @@ export default {
         broker: { user_id: true },
       })
     ],
-    get: [],
-    create: [
-      validate('service.insurance.deal.action.create'),
+    get: [
       authorization({
-        broker: { account_id: true, user_id: true },
         reinsurer: { $deny: true },
+        broker: { user_id: true },
+      })
+    ],
+    create: [
+      authorization({
+        reinsurer: { $deny: true },
+        broker: { user_id: true },
       })
     ],
     update: [disallow()],
     patch: [
-      validate('service.insurance.deal.action.patch'),
       authorization({
         reinsurer: { $deny: true },
-        broker: { user_id: true, account_id: true }
+        broker: { user_id: true },
       })
     ],
     remove: [
       authorization({
         reinsurer: { $deny: true },
-        broker: { user_id: true, account_id: true }
+        broker: { user_id: true },
       })
     ]
   },
