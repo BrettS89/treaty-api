@@ -6,7 +6,7 @@ export const addAccess = async (context: HookContext): Promise<HookContext> => {
   if (!Object.keys(data).includes('market_list_id')) return context;
   if (data.market_list_id === null) return context;
   
-  const list = await app.service('insurance/market-list').get(result.market_list_id, { internal: true });
+  const list = await app.service('market/list').get(result.market_list_id, { internal: true });
   
   await Promise.all(list.markets.map(m => {
     return app.service('insurance/access').create({
@@ -16,7 +16,6 @@ export const addAccess = async (context: HookContext): Promise<HookContext> => {
       active: true,
     }, { internal: true });
   }));
-  console.log('hi');
 
   return context;
 };
@@ -55,4 +54,13 @@ export const deleteNotes = async (context: HookContext): Promise<HookContext> =>
   await Promise.all(notes.map(n => app.service('market/note').remove(n._id, { internal: true })));
 
   return context;
+};
+
+export const createTimeline = async (context: HookContext): Promise<HookContext> => {
+  const { app, result } = context;
+  
+  return app
+    .service('insurance/timeline')
+    .create({ deal_id: result._id }, { internal: true })
+    .then(() => context);
 };

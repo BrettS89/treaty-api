@@ -51,6 +51,17 @@ const resolvers = {
         (await app.service('insurance/access').get(resource.market_list_id)) ?? null
       )
     },
+    timeline: (...args: any) => async (resource: Record<string, any>, { app }: HookContext) => {
+      resource.timeline = (
+        (await app.service('insurance/timeline').find({
+          query: {
+            deal_id: resource._id
+          },
+          internal: true,
+          paginate: false,
+        }))[0]
+      )
+    },
   }
 };
 

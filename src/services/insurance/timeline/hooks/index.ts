@@ -1,45 +1,47 @@
-import { disallow, fastJoin } from 'feathers-hooks-common';
-import { authentication, authorization, validate } from '@/hooks';
-import resolvers from './resolvers';
+import { disallow } from 'feathers-hooks-common';
+import { authentication, authorization } from '@/hooks';
+import { populateInitialData } from './hooks';
 
 export default {
   before: {
-    all: [authentication],
+    all: [
+      authentication,
+    ],
     find: [
       authorization({
+        broker: { $deny: true },
         reinsurer: { $deny: true },
-        broker: { user_id: true },
-      })
+      }),
     ],
     get: [
       authorization({
+        broker: { $deny: true },
         reinsurer: { $deny: true },
-        broker: { user_id: true },
-      })
+      }),
     ],
     create: [
       authorization({
+        broker: { $deny: true },
         reinsurer: { $deny: true },
-        broker: { user_id: true },
-      })
+      }),
+      populateInitialData,
     ],
     update: [disallow()],
-    patch: [
-      authorization({
-        reinsurer: { $deny: true },
-        broker: { user_id: true },
-      })
-    ],
+    patch: [authorization({
+      broker: { account_id: true },
+      reinsurer: { $deny: true },
+    }),
+  ],
     remove: [
       authorization({
+        broker: { $deny: true },
         reinsurer: { $deny: true },
-        broker: { user_id: true },
-      })
+      }),
     ]
   },
 
   after: {
-    all: [fastJoin(resolvers, ctx => ctx.params.resolve || {})],
+    all: [],
     find: [],
     get: [],
     create: [],

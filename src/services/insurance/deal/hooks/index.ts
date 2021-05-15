@@ -1,6 +1,6 @@
 import { disallow, fastJoin } from 'feathers-hooks-common';
 import { authentication, authorization, validate } from '@/hooks';
-import { addAccess, deleteAccess, deleteNotes } from './hooks';
+import { addAccess, createTimeline, deleteAccess, deleteNotes } from './hooks';
 import resolvers from '../resolvers';
 
 export default {
@@ -41,12 +41,22 @@ export default {
   },
 
   after: {
-    all: [fastJoin(resolvers, ctx => ctx.params.resolve || {})],
-    find: [],
-    get: [],
-    create: [],
+    all: [],
+    find: [
+      fastJoin(resolvers, ctx => ctx.params.resolve || {})
+    ],
+    get: [
+      fastJoin(resolvers, ctx => ctx.params.resolve || {})
+    ],
+    create: [
+      createTimeline,
+      fastJoin(resolvers, ctx => ctx.params.resolve || {})
+    ],
     update: [],
-    patch: [addAccess],
+    patch: [
+      addAccess,
+      fastJoin(resolvers, ctx => ctx.params.resolve || {}),
+    ],
     remove: []
   },
 

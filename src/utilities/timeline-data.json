@@ -1,0 +1,161 @@
+{
+  "broker": {
+    "row_1": [
+      {
+         "name": "Analysis of reinsurance structure",
+         "status": "not_started",
+         "weeks": 16
+      },
+      {
+         "name": "Data analysis",
+         "status": "not_started",
+         "weeks": 32
+      },
+      {
+         "is_blank": true,
+         "weeks": 8
+      },
+      {
+         "name": "Reinsurance Treaty Contract Due",
+         "status": "not_started",
+         "weeks": 32
+      },
+      {
+         "name": "Bind Quotes/Sign Lines",
+         "status": "not_started",
+         "weeks": 8
+      }
+   ],
+    "row_2": [
+      {
+         "name": "Marketing Sheet Creation and Selection",
+         "status": "not_started",
+         "weeks": 48
+      },
+      {
+         "is_blank": true,
+         "weeks": 8
+      },
+      {
+         "name": "Meetings - Broker/Cedent/Reinsurer",
+         "status": "not_started",
+         "weeks": 24
+      },
+      {
+         "is_blank": true,
+         "weeks": 8
+      },
+      {
+         "name": "Issue Contracts To Markets",
+         "status": "not_started",
+         "weeks": 8
+      }
+   ]
+  },
+  "insurer": {
+    "row_1": [
+      {
+         "name": "Analysis of reinsurance structure",
+         "status": "not_started",
+         "weeks": 16
+      },
+      {
+         "name": "Data analysis",
+         "status": "not_started",
+         "weeks": 32
+      },
+      {
+         "is_blank": true,
+         "weeks": 8
+      },
+      {
+         "name": "Reinsurance Treaty Contract Due",
+         "status": "not_started",
+         "weeks": 32
+      },
+      {
+         "name": "Bind Quotes/Sign Lines",
+         "status": "not_started",
+         "weeks": 8
+      }
+   ],
+    "row_2": [
+      {
+         "name": "Marketing Sheet Creation and Selection",
+         "status": "not_started",
+         "weeks": 48
+      },
+      {
+         "is_blank": true,
+         "weeks": 8
+      },
+      {
+         "name": "Meetings - Broker/Cedent/Reinsurer",
+         "status": "not_started",
+         "weeks": 24
+      },
+      {
+         "is_blank": true,
+         "weeks": 8
+      },
+      {
+         "name": "Issue Contracts To Markets",
+         "status": "not_started",
+         "weeks": 8
+      }
+   ]
+  },
+  "reinsurer": {
+    "row_1": [
+      {
+         "name": "Analysis of reinsurance structure",
+         "status": "not_started",
+         "weeks": 16
+      },
+      {
+         "name": "Data analysis",
+         "status": "not_started",
+         "weeks": 32
+      },
+      {
+         "is_blank": true,
+         "weeks": 8
+      },
+      {
+         "name": "Reinsurance Treaty Contract Due",
+         "status": "not_started",
+         "weeks": 32
+      },
+      {
+         "name": "Bind Quotes/Sign Lines",
+         "status": "not_started",
+         "weeks": 8
+      }
+   ],
+    "row_2": [
+      {
+         "name": "Marketing Sheet Creation and Selection",
+         "status": "not_started",
+         "weeks": 48
+      },
+      {
+         "is_blank": true,
+         "weeks": 8
+      },
+      {
+         "name": "Meetings - Broker/Cedent/Reinsurer",
+         "status": "not_started",
+         "weeks": 24
+      },
+      {
+         "is_blank": true,
+         "weeks": 8
+      },
+      {
+         "name": "Issue Contracts To Markets",
+         "status": "not_started",
+         "weeks": 8
+      }
+   ]
+  }
+}

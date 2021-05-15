@@ -1,8 +1,8 @@
 import app from '../../../src/app';
 
-describe('\'insurance/market-list\' service', () => {
+describe('\'insurance/timeline\' service', () => {
   it('registered the service', () => {
-    const service = app.service('insurance/market-list');
+    const service = app.service('insurance/timeline');
     expect(service).toBeTruthy();
   });
 });

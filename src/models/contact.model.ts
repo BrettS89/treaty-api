@@ -10,7 +10,30 @@ export default function (app: Application): Model<any> {
   const mongooseClient: Mongoose = app.get('mongooseClient');
   const { Schema } = mongooseClient;
   const schema = new Schema({
-    text: { type: String, required: true }
+    account_id: {
+      type: Schema.Types.ObjectId,
+      ref: 'security/account',
+      required: true,
+    },
+    reinsurer_account_id: {
+      type: Schema.Types.ObjectId,
+      ref: 'security/account',
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    title: {
+      type: String,
+    },
+    email: {
+      type: String,
+      required: true,
+    },
+    phone: {
+      type: String,
+    },
   }, {
     timestamps: true
   });

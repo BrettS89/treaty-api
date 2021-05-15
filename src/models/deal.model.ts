@@ -22,7 +22,7 @@ export default function (app: Application): Model<any> {
     },
     market_list_id: {
       type: Schema.Types.ObjectId,
-      ref: 'insurance/market-list',
+      ref: 'market/list',
     },
     treaty_type: {
       type: [String],

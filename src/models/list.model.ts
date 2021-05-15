@@ -6,11 +6,35 @@ import { Application } from '../declarations';
 import { Model, Mongoose } from 'mongoose';
 
 export default function (app: Application): Model<any> {
-  const modelName = 'list';
+  const modelName = 'market/list';
   const mongooseClient: Mongoose = app.get('mongooseClient');
   const { Schema } = mongooseClient;
   const schema = new Schema({
-    text: { type: String, required: true }
+    account_id: {
+      type: Schema.Types.ObjectId,
+      ref: 'security/account',
+      required: true,
+    },
+    markets: [{
+      account_id: {
+        type: Schema.Types.ObjectId,
+        ref: 'security/account',
+        required: true,
+      },
+      contact_id: {
+        type: Schema.Types.ObjectId,
+        ref: 'market/contact',
+      },
+    }],
+    user_id: {
+      type: Schema.Types.ObjectId,
+      ref: 'security/user',
+      required: true,
+    },
+    name: {
+      type: String,
+      default: 'New List'
+    },
   }, {
     timestamps: true
   });
