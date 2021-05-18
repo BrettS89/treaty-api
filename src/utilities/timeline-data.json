@@ -55,33 +55,7 @@
   "insurer": {
     "row_1": [
       {
-         "name": "Analysis of reinsurance structure",
-         "status": "not_started",
-         "weeks": 16
-      },
-      {
-         "name": "Data analysis",
-         "status": "not_started",
-         "weeks": 32
-      },
-      {
-         "is_blank": true,
-         "weeks": 8
-      },
-      {
-         "name": "Reinsurance Treaty Contract Due",
-         "status": "not_started",
-         "weeks": 32
-      },
-      {
-         "name": "Bind Quotes/Sign Lines",
-         "status": "not_started",
-         "weeks": 8
-      }
-   ],
-    "row_2": [
-      {
-         "name": "Marketing Sheet Creation and Selection",
+         "name": "Market selection and approval",
          "status": "not_started",
          "weeks": 48
       },
@@ -90,60 +64,51 @@
          "weeks": 8
       },
       {
-         "name": "Meetings - Broker/Cedent/Reinsurer",
+         "name": "Meetings Broker/Cednet/Reinsurer",
          "status": "not_started",
          "weeks": 24
       },
       {
-         "is_blank": true,
+         "name": "Firm Order Terms Issued",
+         "status": "not_started",
          "weeks": 8
       },
       {
-         "name": "Issue Contracts To Markets",
+         "name": "Final Approval of Markets, Terms and Percentages",
          "status": "not_started",
          "weeks": 8
+      }
+   ],
+    "row_2": [
+      {
+         "name": "Information Sent to Broker",
+         "status": "not_started",
+         "weeks": 16
+      },
+      {
+         "name": "Reinsurance Submission & Analysis Approval",
+         "status": "not_started",
+         "weeks": 32
+      },
+      {
+         "is_blank": true,
+         "weeks": 48
       }
    ]
   },
   "reinsurer": {
     "row_1": [
       {
-         "name": "Analysis of reinsurance structure",
-         "status": "not_started",
+         "is_blank": true,
          "weeks": 16
       },
       {
-         "name": "Data analysis",
+         "name": "Review Summary Sheet (One pager)",
          "status": "not_started",
          "weeks": 32
       },
       {
-         "is_blank": true,
-         "weeks": 8
-      },
-      {
-         "name": "Reinsurance Treaty Contract Due",
-         "status": "not_started",
-         "weeks": 32
-      },
-      {
-         "name": "Bind Quotes/Sign Lines",
-         "status": "not_started",
-         "weeks": 8
-      }
-   ],
-    "row_2": [
-      {
-         "name": "Marketing Sheet Creation and Selection",
-         "status": "not_started",
-         "weeks": 48
-      },
-      {
-         "is_blank": true,
-         "weeks": 8
-      },
-      {
-         "name": "Meetings - Broker/Cedent/Reinsurer",
+         "name": "Analysis of Submission Package",
          "status": "not_started",
          "weeks": 24
       },
@@ -152,9 +117,30 @@
          "weeks": 8
       },
       {
-         "name": "Issue Contracts To Markets",
+         "name": "Final Quotes Due",
          "status": "not_started",
          "weeks": 8
+      },
+      {
+         "is_blank": true,
+         "weeks": 8
+      }
+   ],
+    "row_2": [
+      {
+         "is_blank": true,
+         "weeks": 56
+      },
+      
+      {
+         "name": "Meetings - Broker/Cedent/Reinsurer",
+         "status": "not_started",
+         "weeks": 24
+      },
+      {
+         "name": "Final Contract Approval",
+         "status": "not_started",
+         "weeks": 16
       }
    ]
   }

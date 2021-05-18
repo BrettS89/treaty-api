@@ -28,7 +28,7 @@ export default {
     ],
     update: [disallow()],
     patch: [authorization({
-      broker: { account_id: true },
+      broker: { $deny: false },
       reinsurer: { $deny: true },
     }),
   ],

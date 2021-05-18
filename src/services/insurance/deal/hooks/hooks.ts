@@ -23,7 +23,7 @@ export const addAccess = async (context: HookContext): Promise<HookContext> => {
 export const deleteAccess = async (context: HookContext): Promise<HookContext> => {
   const { app, data, id } = context;
 
-  if (!data.market_list_id) return context;
+  if (!data.market_list_id === undefined ?? data.market_list_id) return context;
 
   const access = await app.service('insurance/access').find({
     query: {
