@@ -6,6 +6,9 @@
     "deal_id": {
       "$ref": "/system/schema/database.document.id"
     },
+    "display_text": {
+      "type": "string"
+    },
     "key": {
       "type": "string"
     },

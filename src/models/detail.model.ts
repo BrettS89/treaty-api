@@ -19,6 +19,10 @@ export default function (app: Application): Model<any> {
       type: String,
       required: true,
     },
+    display_text: {
+      type: String,
+      required: true,
+    },
     value: {
       type: Schema.Types.Mixed,
     }
