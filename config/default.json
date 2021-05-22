@@ -7,5 +7,14 @@
     "max": 50
   },
   "jwtSecret": "placeholder",
-  "mongodb": "mongodb://localhost:27017/treaty_api"
+  "mongodb": "mongodb://localhost:27017/treaty_api",
+  "aws": {
+    "s3": {
+      "bucket": "S3_BUCKET",
+      "key": "S3_KEY",
+      "public": "S3_PUBLIC_KEY",
+      "secret": "S3_SECRET_KEY",
+      "cloudfrontKey": "CLOUDFRONT_KEY"
+    }
+  }
 }

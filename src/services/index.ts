@@ -6,7 +6,6 @@ import dataTag from './data/tag/tag.service';
 import securitySession from './security/session/session.service';
 import storageFile from './storage/file/file.service';
 import insuranceDeal from './insurance/deal/deal.service';
-import insuranceDocument from './insurance/document/document.service';
 import insuranceAccess from './insurance/access/access.service';
 import insuranceDetail from './insurance/detail/detail.service';
 import insuranceFollowing from './insurance/following/following.service';
@@ -15,6 +14,7 @@ import marketNote from './market/note/note.service';
 import marketContact from './market/contact/contact.service';
 import marketList from './market/list/list.service';
 import insuranceTimeline from './insurance/timeline/timeline.service';
+import storageS3 from './storage/s3/s3.service';
 // Don't remove this comment. It's needed to format import lines nicely.
 
 export default function (app: Application): void {
@@ -25,7 +25,6 @@ export default function (app: Application): void {
   app.configure(securitySession);
   app.configure(storageFile);
   app.configure(insuranceDeal);
-  app.configure(insuranceDocument);
   app.configure(insuranceAccess);
   app.configure(insuranceDetail);
   app.configure(insuranceFollowing);
@@ -34,4 +33,5 @@ export default function (app: Application): void {
   app.configure(marketContact);
   app.configure(marketList);
   app.configure(insuranceTimeline);
+  app.configure(storageS3);
 }

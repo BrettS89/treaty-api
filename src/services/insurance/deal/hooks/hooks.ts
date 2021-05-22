@@ -33,8 +33,6 @@ export const deleteAccess = async (context: HookContext): Promise<HookContext> =
     paginate: false,
   });
 
-  console.log(data.market_list_id, 'DELETED');
-
   await Promise.all(access.map(a => app.service('insurance/access').remove(a._id, { internal: true })));
 
   return context;
