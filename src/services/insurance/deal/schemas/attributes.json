@@ -66,6 +66,12 @@
         { "type": "null" }
       ]
     },
+    "file_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "/system/schema/database.document.id"
+      }
+    },
     "executive_summary": {
       "type": "string"
     },

@@ -12,10 +12,6 @@ declare module '../../../declarations' {
 }
 
 export default function (app: Application): void {
-  const options = {
-    paginate: app.get('paginate')
-  };
-
   // Initialize our service with any options it requires
   app.use('/storage/s3', new S3(app));
 

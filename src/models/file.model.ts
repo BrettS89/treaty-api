@@ -28,7 +28,7 @@ export default function (app: Application): Model<any> {
         type: Number,
         required: true,
       },
-      mime_type: {
+      type: {
         type: String,
         required: true,
       },

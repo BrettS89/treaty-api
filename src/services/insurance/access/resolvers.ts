@@ -6,7 +6,7 @@ const resolvers = {
       access.deal = (
         await app.service('insurance/deal').get(access.deal_id, {
           internal: true,
-          query: { $resolve: { details: true, user: true, timeline: true } }
+          query: { $resolve: { details: true, user: true, timeline: true, files: true } }
         })
       );
     },

@@ -62,6 +62,18 @@ const resolvers = {
         }))[0]
       )
     },
+    files: (...args: any) => async (resource: Record<string, any>, { app }: HookContext) => {
+      resource.files = (
+        await app.service('storage/file').find({
+          query: {
+            $limit: 1000,
+            _id: { $in: resource.file_ids ?? [] }
+          },
+          internal: true,
+          paginate: false,
+        })
+      )
+    },
   }
 };
 

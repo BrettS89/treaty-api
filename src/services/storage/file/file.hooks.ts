@@ -1,7 +1,8 @@
+import { authentication } from '@/hooks';
 
 export default {
   before: {
-    all: [],
+    all: [authentication],
     find: [],
     get: [],
     create: [],

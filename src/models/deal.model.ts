@@ -24,6 +24,10 @@ export default function (app: Application): Model<any> {
       type: Schema.Types.ObjectId,
       ref: 'market/list',
     },
+    file_ids: [{
+      type: Schema.Types.ObjectId,
+      ref: 'storage/file',
+    }],
     treaty_type: {
       type: [String],
       required: true,
