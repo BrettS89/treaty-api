@@ -1,0 +1,17 @@
+{
+  "$id": "/system/schema/service.security.user.action.create",
+  "title": "Service.Security.User.Action.Create",
+  "allOf": [
+    { "$ref": "/system/schema/service.security.user.attributes" },
+    {
+      "required": [
+        "firstname",
+        "lastname",
+        "email",
+        "password",
+        "account_id",
+        "role_id"
+      ]
+    }
+  ]
+}

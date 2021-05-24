@@ -1,0 +1,17 @@
+{
+  "$id": "/system/schema/service.insurance.following.attributes",
+  "title": "Service.Insurance.Following.Attributes",
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "$ref": "/system/schema/database.document.id"
+    },
+    "deal_id": {
+      "$ref": "/system/schema/database.document.id"
+    },
+    "access_id": {
+      "$ref": "/system/schema/database.document.id"
+    }
+  },
+  "additionalProperties": false
+}

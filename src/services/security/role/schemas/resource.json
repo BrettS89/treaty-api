@@ -1,0 +1,8 @@
+{
+  "$id": "/system/schema/service.security.role.resource",
+  "title": "Service.Security.Role.Resource",
+  "allOf": [
+    { "$ref": "/system/schema/database.document.resource" },
+    { "$ref": "/system/schema/service.security.role.attributes" }
+  ]
+}

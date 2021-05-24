@@ -1,0 +1,20 @@
+{
+  "$id": "/system/schema/service.insurance.detail.attributes",
+  "title": "Service.Insurance.Detail.Attributes",
+  "type": "object",
+  "properties": {
+    "deal_id": {
+      "$ref": "/system/schema/database.document.id"
+    },
+    "display_text": {
+      "type": "string"
+    },
+    "key": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}
