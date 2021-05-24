@@ -1,9 +1,0 @@
-{
-  "$id": "/system/schema/service.communication.message.resource",
-  "title": "Service.Communication.Message.Resource",
-  "allOf": [
-    { "$ref": "/system/schema/database.document.resource" },
-    { "$ref": "/system/schema/service.communication.message.attributes" },
-    { "$ref": "/system/schema/service.communication.message.relations" }
-  ]
-}

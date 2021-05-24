@@ -1,7 +1,0 @@
-{
-  "$id": "/system/schema/service.communication.message.action.patch",
-  "title": "Service.Communication.Message.Action.Patch",
-  "allOf": [
-    { "$ref": "/system/schema/service.communication.message.attributes" }
-  ]
-}

@@ -1,8 +1,0 @@
-{
-  "$id": "/system/schema/service.insurance.detail.resource",
-  "title": "Service.Insurance.Detail.Resource",
-  "allOf": [
-    { "$ref": "/system/schema/database.document.resource" },
-    { "$ref": "/system/schema/service.insurance.detail.attributes" }
-  ]
-}

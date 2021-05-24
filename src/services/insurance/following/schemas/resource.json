@@ -1,9 +1,0 @@
-{
-  "$id": "/system/schema/service.insurance.following.resource",
-  "title": "Service.Insurance.Following.Resource",
-  "allOf": [
-    { "$ref": "/system/schema/database.document.resource" },
-    { "$ref": "/system/schema/service.insurance.following.attributes" },
-    { "$ref": "/system/schema/service.insurance.following.relations" }
-  ]
-}

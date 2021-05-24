@@ -1,7 +1,0 @@
-{
-  "$id": "/system/schema/service.security.user.action.patch",
-  "title": "Service.Security.User.Action.patch",
-  "allOf": [
-    { "$ref": "/system/schema/service.security.user.attributes" }
-  ]
-}

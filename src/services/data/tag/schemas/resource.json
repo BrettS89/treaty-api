@@ -1,9 +1,0 @@
-{
-  "$id": "/system/schema/service.data.tag.resource",
-  "title": "Service.Data.Tag.Resource",
-  "allOf": [
-    { "$ref": "/system/schema/database.document.resource" },
-    { "$ref": "/system/schema/service.data.tag.attributes" },
-    { "$ref": "/system/schema/service.data.tag.relations" }
-  ]
-}
